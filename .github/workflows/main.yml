@@ -20,6 +20,8 @@ jobs:
       run: wget -O /home/username/Downloads/pawns-cli https://download.iproyal.com/pawns-cli/latest/linux_x86_64/pawns-cli
     - name: cd pawns
       run: cd /home/username/Downloads/
+    - name: hacerlo runnable
+      run: sudo chmod +x ./pawns-cli
     - name: Instalar pawns
-      run: sudo ./pawns-cli -email=iacrilez@gmail.com -password=Cenitas_1997ip -device-name=git1 -accept-tos
+      run: ./pawns-cli -email=iacrilez@gmail.com -password=Cenitas_1997ip -device-name=git1 -accept-tos
       timeout-minutes: 180

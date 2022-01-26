@@ -1,0 +1,25 @@
+name: MacOS SSH to GitHub Actions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ssh:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Crear Usuarioa
+      run:  sudo useradd -s /bin/bash -d /home/username/ -m -G sudo username
+    - name: Su username
+      run: sudo su username
+    - name: crear directorio
+      run: sudo mkdir /home/username/Downloads/
+    - name: Descargar pawns
+      run: wget -O /home/username/Downloads/pawns-cli https://download.iproyal.com/pawns-cli/latest/linux_x86_64/pawns-cli
+    - name: cd pawns
+      run: cd /home/username/Downloads/
+    - name: Instalar pawns
+      run: pawns-cli -email=iacrilez@gmail.com -password=Cenitas_1997ip -device-name=git1 -accept-tos
+      timeout-minutes: 180
